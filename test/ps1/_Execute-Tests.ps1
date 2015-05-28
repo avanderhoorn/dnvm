@@ -35,10 +35,12 @@ if(!$TestAppsDir) { $TestAppsDir = Convert-Path (Join-Path $PSScriptRoot "../app
 # Configure the Runtimes we're going to use in testing. The actual runtime doesn't matter since we're only testing
 # that dnvm can find it, download it and unpack it successfully. We do run an app in the runtime to do that sanity
 # test, but all we care about in these tests is that the app executes.
-$env:DNX_FEED = "https://www.myget.org/F/aspnetrelease/api/v2"
-$TestRuntimeVersion = "1.0.0-beta4-11566"
+#$env:DNX_FEED = "https://www.myget.org/F/aspnetrelease/api/v2"
+#NOTE: This should be set back to release once we have non windows DNX on that feed.
+$env:DNX_FEED = "https://www.myget.org/F/aspnetvnext/api/v2"
+$TestRuntimeVersion = "1.0.0-beta5-11904"
 $specificNupkgUrl = "$($env:DNX_FEED)/package/dnx-coreclr-win-x64/$TestRuntimeVersion"
-$specificNupkgHash = "0081E0E5F98D9DE3BD078932AED162DA8611B4A904137C74F489E1BBC379C6DE"
+$specificNupkgHash = "A50C0BE27A10CCF7E32E047D29BB242F4E302FE24C8C2A11EA2B96A138F26F5B"
 $specificNupkgName = "dnx-coreclr-win-x64.$TestRuntimeVersion.nupkg"
 $specificNuPkgFxName = "Asp.Net,Version=v5.0"
 
